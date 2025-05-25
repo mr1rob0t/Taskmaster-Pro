@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster Pro</title>
+    <!-- you have to do the flipping thing for this title -->
+
+</head>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="title">TaskMaster Pro</h1>
+            <p class="subtitle">Everything you wish in a ToDo app</p>
+
+            <!-- Stats Dashboard -->
+            <div class="stats">
+                <div class="stat-card" onclick="filterTodos('all')">
+                    <span class="stat-number" id="totalTasks">0</span>
+                    <span class="stat-label">Total Tasks</span>
+                </div>
+                <div class="stat-card" onclick="filterTodos('completed')">
+                    <span class="stat-number" id="completedTasks">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+                <div class="stat-card" onclick="filterTodos('active')">
+                    <span class="stat-number" id="pendingTasks">0</span>
+                    <span class="stat-label">Pending</span>
+                </div>
+                <div class="stat-card" onclick="filterTodos('starred')">
+                    <span class="stat-number" id="starredTasks">0</span>
+                    <span class="stat-label">Starred</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-section">
+            <div class="input-group">
+                <input type="text" class="todo-input" id="todoInput" placeholder="What needs to be done today? ✨"
+                    maxlength="100">
+                <button class="add-btn" onclick="addTodo()">
+                    <span>Add Task</span>
+                </button>
+            </div>
+
+            <div class="options-row">
+                <div class="select-group">
+                    <label>Priority:</label>
+                    <select id="prioritySelect">
+                        <option value="low">🟢 Low</option>
+                        <option value="medium" selected>🟡 Medium</option>
+                        <option value="high">🔴 High</option>
+                    </select>
+                </div>
+
+                <div class="select-group">
+                    <label>Category:</label>
+                    <select id="categorySelect">
+                        <option value="personal">👤 Personal</option>
+                        <option value="work">💼 Work</option>
+                        <option value="shopping">🛒 Shopping</option>
+                        <option value="health">💪 Health</option>
+                        <option value="learning">📚 Learning</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <input type="text" class="search-box" id="searchInput" placeholder="🔍 Search tasks..."
+                oninput="searchTodos()">
+
+            <button class="filter-btn active" onclick="filterTodos('all')" data-filter="all">All</button>
+            <button class="filter-btn" onclick="filterTodos('active')" data-filter="active">Active</button>
+            <button class="filter-btn" onclick="filterTodos('completed')" data-filter="completed">Completed</button>
+            <button class="filter-btn" onclick="filterTodos('starred')" data-filter="starred">Starred</button>
+        </div>
+
+        <!-- Todo List -->
+        <div class="todo-list" id="todoList">
+            <!-- Todos will be inserted here -->
+        </div>
+    </div>
+
+
+</body>
+
+</html>
